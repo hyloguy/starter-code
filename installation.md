@@ -1,41 +1,6 @@
 # Installing command line tools
 
-### GitHub
-
-We will be using the GitHub service to share some of our code. We will learn
-about the underlying technology of GitHub known as `git` in the next lesson.
-
-- Create an account at http://github.com
-- In a Terminal on your computer, run the following two commands:
-
-```bash
-git config --global user.name "YOUR NAME"
-git config --global user.email "YOUR EMAIL ADDRESS"
-```
-
-  (source: [GitHub](https://help.github.com/articles/set-up-git/))
-
-- Follow [these
-  instructions](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/)
-  to create a new _SSH Key_ (a special, very secure, key which allows your
-  laptop access to your github account without having to remember your github
-  password)
-- Add your new SSH Key to GitHub following [these
-  instructions](https://help.github.com/articles/adding-a-new-ssh-key-to-your-github-account/)
-- Verify your key works by running the following:
-
-```bash
-ssh git@github.com
-```
-
-  You should see output similar to:
-
-  ```
-  Hi <you>! You've successfully authenticated, but GitHub does not provide shell access.
-  Connection to github.com closed.
-  ```
-
-### Brew, Git, Node, and Sublime Text 
+### Brew, Git, Node, and Visual Studio Code 
 
 You will need to install certain tools that will be used throughout the course. The installation instructions vary depending on whether you have a Mac, Windows, or Linux machine.
 
@@ -80,9 +45,9 @@ Node has a handy package manager, which we will using frequently. It comes with 
 npm install npm -g
 ```
 
-6. __Install Sublime Text 3__
+6. __Install Visual Studio Code__
 
-Sublime Text can be found [here](http://www.sublimetext.com/3) and is available for all platforms, but you are free to use any code editor you choose. Popular choices include [Atom](http://atom.io) (Mac and Windows) and [Visual Studio Code](https://code.visualstudio.com/#alt-downloads) (all platforms).
+Visual Studio Code can be found [here](http://code.visualstudio.com) and is available for all platforms, but you are free to use any code editor you choose. Popular choices include [Atom](http://atom.io) (Mac and Windows) and [Sublime Text](https://sublimetext.com/3) (all platforms).
 
 When you’re done, raise your hand and ask a member of the instructional team to verify that the installation was successful.
 
@@ -107,9 +72,9 @@ git config --global user.email "steve@apple.com"
 3. __Install Node__
 Refer to the package installer on Node’s [website](https://nodejs.org/en/). Just follow the set-up instructions.
 
-4. __Install Sublime Text__
+4. __Install Visual Studio Code__
 
-Sublime Text can be found [here](http://www.sublimetext.com/3) and is available for all platforms, but you are free to use any code editor that you are comfortable with. Other popular choices are [Atom](http://atom.io) (Mac and Windows) and [Visual Studio Code](https://code.visualstudio.com/#alt-downloads) (all platforms).
+Visual Studio Code can be found [here](http://code.visualstudio.com) and is available for all platforms, but you are free to use any code editor you choose. Popular choices include [Atom](http://atom.io) (Mac and Windows) and [Sublime Text](https://sublimetext.com/3) (all platforms).
 
 When you’re done, raise your hand and ask a member of the instructional team to verify that the installation was successful.
 
@@ -142,18 +107,48 @@ sudo apt-get install --yes nodejs
 apt-get install --yes build-essential
 ```
 
-4. __Install Sublime Text 3__
+4. __Install Visual Studio Code__
 
-Sublime Text can be found [here](http://www.sublimetext.com/3) and is available for all platforms, but you are free to use any code editor you choose. Popular choices include [Atom](http://atom.io) (Mac and Windows) and [Visual Studio Code](https://code.visualstudio.com/#alt-downloads) (all platforms).
+Visual Studio Code can be found [here](http://code.visualstudio.com) and is available for Mac and Windows, but you are free to use any code editor you choose. Popular choices include [Atom](http://atom.io) (Mac and Windows) and [Sublime Text](https://sublimetext.com/3) (all platforms).
 
+When you’re done, raise your hand and ask a member of the instructional team to verify that the installation was successful.
+
+
+### GitHub
+
+We will be using the GitHub service to share some of our code. We will learn
+about the underlying technology of GitHub known as `git` in the next lesson.
+
+- Create an account at http://github.com
+- In a Terminal on your computer, run the following two commands:
 
 ```bash
-sudo add-apt-repository ppa:webupd8team/sublime-text-3
-sudo apt-get update
-sudo apt-get install sublime-text-installer
+git config --global user.name "YOUR NAME"
+git config --global user.email "YOUR EMAIL ADDRESS"
 ```
 
-You’re all set! Test it out with `subl` and  ask a member of the instructional team to verify that the installation was successful.
+  (source: [GitHub](https://help.github.com/articles/set-up-git/))
+
+- Follow [these
+  instructions](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/)
+  to create a new _SSH Key_ (a special, very secure, key which allows your
+  laptop access to your github account without having to remember your github
+  password)
+- Add your new SSH Key to GitHub following [these
+  instructions](https://help.github.com/articles/adding-a-new-ssh-key-to-your-github-account/)
+- Verify your key works by running the following:
+
+```bash
+ssh git@github.com
+```
+
+  You should see output similar to:
+
+  ```
+  Hi <you>! You've successfully authenticated, but GitHub does not provide shell access.
+  Connection to github.com closed.
+  ```
+
 
 
 ### Helpful Debugging Tips
