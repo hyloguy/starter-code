@@ -8,110 +8,110 @@ You will need to install certain tools that will be used throughout the course. 
 
 1. __Install brew__
 
-Brew is a package manager that we use to install various command line applications to your computer.
+  Brew is a package manager that we use to install various command line applications to your computer.
 
-Open your terminal (`Applications > Utilities > Terminal`), paste the following command, and hit enter:
+  Open your terminal (`Applications > Utilities > Terminal`), paste the following command, and hit enter:
 
-```bash
-ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-```
+  ```bash
+  ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  ```
 
 2. __Install Git__
 
-Git is used to track the state of your code over time. [GitHub](https://github.com) has built its platform on Git technology. We will be using both Git and GitHub to distribute code, submit assignments, and offer feedback. Use the following command to install Git:
+  Git is used to track the state of your code over time. [GitHub](https://github.com) has built its platform on Git technology. We will be using both Git and GitHub to distribute code, submit assignments, and offer feedback. Use the following command to install Git:
 
-```bash
-brew install git
-```
+  ```bash
+  brew install git
+  ```
 
 3. __Configure Git__
 
-Copy and paste the following two commands (separately) into your terminal. Replace the name and email address values with your own.
+  Copy and paste the following two commands (separately) into your terminal. Replace the name and email address values with your own.
 
-```bash
-git config --global user.name "Steve Jobs"
-git config --global user.email "steve@apple.com"
-```
+  ```bash
+  git config --global user.name "Steve Jobs"
+  git config --global user.email "steve@apple.com"
+  ```
 
 4. __Install Node__
 
-Refer to the package installer on Node’s [website](https://nodejs.org/en/). Just follow the set-up instructions.
+  Refer to the package installer on Node’s [website](https://nodejs.org/en/). Just follow the set-up instructions.
 
 5. __Ensure NPM is updated__
 
-Node has a handy package manager, which we will using frequently. It comes with Node, but NPM is updated more frequently; you will always need to have the most up-to-date version.
+  Node has a handy package manager, which we will using frequently. It comes with Node, but NPM is updated more frequently; you will always need to have the most up-to-date version.
 
-```bash
-npm install npm -g
-```
+  ```bash
+  npm install npm -g
+  ```
 
 6. __Install Visual Studio Code__
 
-Visual Studio Code can be found [here](http://code.visualstudio.com) and is available for all platforms, but you are free to use any code editor you choose. Popular choices include [Atom](http://atom.io) (Mac and Windows) and [Sublime Text](https://sublimetext.com/3) (all platforms).
+  Visual Studio Code can be found [here](http://code.visualstudio.com) and is available for all platforms, but you are free to use any code editor you choose. Popular choices include [Atom](http://atom.io) (Mac and Windows) and [Sublime Text](https://sublimetext.com/3) (all platforms).
 
-When you’re done, raise your hand and ask a member of the instructional team to verify that the installation was successful.
+  When you’re done, raise your hand and ask a member of the instructional team to verify that the installation was successful.
 
 #### Windows
 
 1. __Install Git__
 
-Git is used to track the state of your code over time. [GitHub](https://github.com) has built its platform on Git technology. We will be using both Git and GitHub in this class to distribute code, submit assignments, and offer feedback.
-Git can be downloaded and installed from [this](https://git-scm.com/download/win) URL.
+  Git is used to track the state of your code over time. [GitHub](https://github.com) has built its platform on Git technology. We will be using both Git and GitHub in this class to distribute code, submit assignments, and offer feedback.
+  Git can be downloaded and installed from [this](https://git-scm.com/download/win) URL.
 
 2. __Configure Git__
 
-In order to interact with Git, you'll need to first open the Git Bash utility. A quick way to access this terminal is by right clicking your desktop and choosing "Git Bash".
+  In order to interact with Git, you'll need to first open the Git Bash utility. A quick way to access this terminal is by right clicking your desktop and choosing "Git Bash".
 
-Copy and paste the following two commands (separately) into your terminal. Replace the name and email address values with your own.
+  Copy and paste the following two commands (separately) into your terminal. Replace the name and email address values with your own.
 
-```bash
-git config --global user.name "Steve Jobs"
-git config --global user.email "steve@apple.com"
-```
+  ```bash
+  git config --global user.name "Steve Jobs"
+  git config --global user.email "steve@apple.com"
+  ```
 
 3. __Install Node__
-Refer to the package installer on Node’s [website](https://nodejs.org/en/). Just follow the set-up instructions.
+  Refer to the package installer on Node’s [website](https://nodejs.org/en/). Just follow the set-up instructions.
 
 4. __Install Visual Studio Code__
 
-Visual Studio Code can be found [here](http://code.visualstudio.com) and is available for all platforms, but you are free to use any code editor you choose. Popular choices include [Atom](http://atom.io) (Mac and Windows) and [Sublime Text](https://sublimetext.com/3) (all platforms).
+  Visual Studio Code can be found [here](http://code.visualstudio.com) and is available for all platforms, but you are free to use any code editor you choose. Popular choices include [Atom](http://atom.io) (Mac and Windows) and [Sublime Text](https://sublimetext.com/3) (all platforms).
 
-When you’re done, raise your hand and ask a member of the instructional team to verify that the installation was successful.
+  When you’re done, raise your hand and ask a member of the instructional team to verify that the installation was successful.
 
 #### Linux (Ubuntu)
 
 1. __Install Git__
 
-Git is a tool used to track the state of your code over time. [GitHub](https://github.com) is a company that has made a business on top of the Git technology. We will be using both Git and GitHub in this class to distribute code, submit assignments and offer feedback.
+  Git is a tool used to track the state of your code over time. [GitHub](https://github.com) is a company that has made a business on top of the Git technology. We will be using both Git and GitHub in this class to distribute code, submit assignments and offer feedback.
 
-Git can be installed by running the following command:
+  Git can be installed by running the following command:
 
-```bash
-sudo apt-get install build-essential git-core curl
-```
+  ```bash
+  sudo apt-get install build-essential git-core curl
+  ```
 
 2. __Configure Git__
 
-Copy and paste the following two commands (separately) into your terminal. Replace the name and email address values with your own.
+  Copy and paste the following two commands (separately) into your terminal. Replace the name and email address values with your own.
 
-```bash
-git config --global user.name "Steve Jobs"
-git config --global user.email "steve@apple.com"
-```
+  ```bash
+  git config --global user.name "Steve Jobs"
+  git config --global user.email "steve@apple.com"
+  ```
 
 3. __Install Node.js__
 
-```bash
-curl --silent --location https://deb.nodesource.com/setup_6.x | sudo -E bash -
-sudo apt-get install --yes nodejs
-apt-get install --yes build-essential
-```
+  ```bash
+  curl --silent --location https://deb.nodesource.com/setup_6.x | sudo -E bash -
+  sudo apt-get install --yes nodejs
+  apt-get install --yes build-essential
+  ```
 
 4. __Install Visual Studio Code__
 
-Visual Studio Code can be found [here](http://code.visualstudio.com) and is available for Mac and Windows, but you are free to use any code editor you choose. Popular choices include [Atom](http://atom.io) (Mac and Windows) and [Sublime Text](https://sublimetext.com/3) (all platforms).
+  Visual Studio Code can be found [here](http://code.visualstudio.com) and is available for Mac and Windows, but you are free to use any code editor you choose. Popular choices include [Atom](http://atom.io) (Mac and Windows) and [Sublime Text](https://sublimetext.com/3) (all platforms).
 
-When you’re done, raise your hand and ask a member of the instructional team to verify that the installation was successful.
+  When you’re done, raise your hand and ask a member of the instructional team to verify that the installation was successful.
 
 
 ### GitHub
