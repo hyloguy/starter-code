@@ -53,12 +53,12 @@ When you’re done, raise your hand and ask a member of the instructional team t
 
 #### Windows
 
-2. __Install Git__
+1. __Install Git__
 
 Git is used to track the state of your code over time. [GitHub](https://github.com) has built its platform on Git technology. We will be using both Git and GitHub in this class to distribute code, submit assignments, and offer feedback.
 Git can be downloaded and installed from [this](https://git-scm.com/download/win) URL.
 
-3. __Configure Git__
+2. __Configure Git__
 
 In order to interact with Git, you'll need to first open the Git Bash utility. A quick way to access this terminal is by right clicking your desktop and choosing "Git Bash".
 
