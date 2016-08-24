@@ -1,118 +1,272 @@
-# ![](https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png) Unit Project #1: Slackbot
+### Installing and Configuring Everything
 
-### Overview
+In order to get our bots up and running, we need to perform a number of installations, so make sure you follow these steps carefully. Your instructor should provide you with a Hubot and an API token; be sure to have those ready because you'll need both in order to complete many of these steps.
 
-We've been using Slack to communicate with each other for the first couple weeks of the class. Now it is time to build our very own Slackbot to add a fun interactive component to the chat room. A Slackbot is an integration into slack that can either respond to specific phrases that are mentioned in Slack or they can post things from outside of slack into a channel or private conversation. There are now entire startups built on top of Slackbots. For example, people have built Slackbots that let you hail an Uber from them or schedule meetings with different members of your team (where it searches your Google Calendar). One of the most popular Slackbots lets people post random gifs based on phrases into a channel from Giphy.
+First, you'll need to [sign up for a free Heroku account](http://heroku.com).
 
-For our first project, we are going to keep things simple. We will build a Slackbot on top of the popular Github bot called [Hubot](https://github.com/slackhq/hubot-slack). Hubot is a robot that was created by GitHub, that automates their company chat. Hubot can deploy their site, be a source of fun comments and also can automate a lot of their daily tasks. It is powerful, but it is also built in a way that we can build whatever we want on top of it.
+Next, [download the Heroku toolbelt](https://toolbelt.heroku.com/). This set of tools allows us to talk to Heroku's servers using the command line.
 
-Hubot scripts are generally written in CoffeeScript, which is a JavaScript scripting language. They also take vanilla JavaScript, which is what we will be using. Your bot can respond to whatever you like, but should do at least 3 different things.
+We begin with the command line. In a terminal window, type the following commands, in order:
 
-Hubot has a few basic functions:
+**Create your hubot directory:**
 
-__Respond__
+`$ mkdir myhubot`
 
-Using the Respond command, will search through a series of text that you give it and if it sees the text in the Slack channel, this function will execute. You can then use the Send command to post a message to the channel.
+**Move into that new directory:**
 
-__Send__
+`$ cd myhubot`
 
-Send lets you send a message to the Slack channel. We usually use this hand-in-hand with respond. For example, when someone says something (i.e. 'Hi') on the channel, we respond by sending "Howdy". Of course, it will only send or respond based on the commands and words you teach it (by adding it to your code).
+**Install Hubot and its dependencies (CoffeeScript, Yeoman, and the Hubot generator):**
 
-__Reply__
+`$ npm install -g hubot coffee-script yo generator-hubot`
 
-Reply lets you reply to a certain user or to the person who sent the original message. This includes the @ in front of the user's name so they get alerted.
+**Using Yeoman, generate a Hubot bot:**
 
-__Random__
+`$ yo hubot --adapter="slack"`
 
-Hubot also has a random script which is pretty nifty so we don't need to write custom JavaScript for that. It will return a random result based on what you give it. Check out the starter code for some examples.
+**This will prompt you to answer a few questions about your bot:**
 
----
+ * Owner: `hit enter`
+ * Bot Name: `Give the bot a name`
+ * Description: `Optional Description`
 
-### Technical Requirements
 
-Your app must:
+>Note: the `--adapter="slack"` option in the `yo` command above is a workaround for a dependency-related bug in `generator-hubot` causing the program to crash when it prompts the user for what adapter they want to use. If you specify the adapter on the command line as above, the broken prompting code will be skipped. (This is all documented in [this issue](https://github.com/github/generator-hubot/issues/64) in the `generator-hubot` repo.)
 
-* Have a message post to Slack based on user input
-* Do at least 3 different things.
-* One of the commands must **utilize the list of people in the class to send a direct message or reply**.
-* Leverage [Hubot](https://github.com/slackhq/hubot-slack)
-* Use at least 1 conditional to change the outcome of a Slackbot.
+**Install hubot-slack dependency and save it to your package.json:**
 
-#### Bonus
+`npm install hubot-slack --save`
 
-* Leverage a for loop to iterate over a collection
-* Introduce a random component
-* Include an image in the response in addition to text
+Now, we need to push up our bot to Heroku.
 
----
+**Initialize your local repository:**
 
-### Necessary Deliverables
+`$ git init`
 
-* A **working Slackbot, built by you**, that can be run in the class Slack room.
-* A **new git repository hosted on Github**, where codebase is maintained.
-* **A ``readme.md`` file** with explanations of what your bot does, what commands it responds to, the approach taken, installation instructions, unsolved problems, etc.
+**Add all of your new files:**
 
----
+`$ git add .`
 
-### Suggested Ways to Get Started
+**Commit your new files:**
 
-* Review existing Slackbots and Hubots for inspiration.
-* Begin by writing down what your different commands will be and expected outcomes before writing any code.
-* Write pseudocode before writing any code.
-* Get Hubot working out of the box before writing any custom code.
-* Test small pieces of functionality frequently to make sure everything is working.
-* Use tools such as Stack Overflow, Google and documentation resources to solve problems.
+`$ git commit -m "Initial Commit"`
 
----
+**Create a new app on Heroku:**
 
-### Potential Project Ideas
+`$ heroku login`
 
-##### Class today
-Ask your bot whether we have class today or not. Use JavaScript to check today's date and then respond back with whether we have class or not.
+`$ heroku create myhubotapp`
 
-##### Random quote
-Use an array to store a number of your favorite quotes. When you ping your bot, have it return a random quote from your list.
+> where "myhubotapp" is a unique app name; any app name already used by a heroku user will fail with "name is already taken"
 
----
+ **Connect your local repo to heroku**
 
-### Useful Resources
+ `$ git remote add heroku https://git.heroku.com/myhubotapp`
 
-Key Resources
-* [Hubot Scripting](https://github.com/github/hubot/blob/master/docs/scripting.md)
-* [Hubot adapter for Slack](https://github.com/slackhq/hubot-slack)
-* [Slack API Documentation](https://api.slack.com/bot-users)
+ **Add the following configs for Slack:**
 
-Examples
-* [Hubot Ship It](https://github.com/hubot-scripts/hubot-shipit)
-* [Slackbot Community](https://api.slack.com/community)
-* [Hubot scripts](https://github.com/github/hubot-scripts)
+`$ heroku config:add HEROKU_URL=https://myhubotapp.herokuapp.com`
 
-Advanced Reading
-* [Great in-depth tutorial on writing a Slackbot](http://www.michikono.com/2015/07/10/in-depth-tutorial-on-writing-a-slackbot/)
-* [Hubot scripts explained](http://theprogrammingbutler.com/blog/archives/2011/10/28/hubot-scripts-explained/)
-* [Create your own chatbot with Hubot & Coffeescript](http://www.slideshare.net/rscaduto/hubot-talk)
-* [Getting Started with Slackbots](http://www.sitepoint.com/getting-started-slack-bots/)
+`$ heroku config:add HUBOT_SLACK_TOKEN=YourTokenGoesHere`
 
----
+> Where "YourTokenGoesHere" is the API token provided by the instructor
 
-### Project Feedback + Evaluation
+**Push all your code up to Heroku**
 
-Students will create a new repository on GitHub called "my-first-slackbot" and push their code to this new repository when they are ready to submit.
+`$ git push heroku master`
 
-The instructional team will grade each technical requirement and provide a numeric grade on a scale.
+**Turn on your bot**
 
-* __Technical Requirements__: Did you deliver a project that met all the technical requirements? Given what the class has covered so far, did you build something that was reasonably complex?
+`$ heroku ps:scale web:1`
 
-* __Creativity__: Did you added a personal spin or creative element into your project submission? Did you deliver something of value to the end user (not just a hello world response)?
+**Test your bot locally to make sure it's working:**
 
-* __Code Quality__: Did you follow code style guidance and best practices covered in class, such as spacing, modularity, and semantic naming? Did you comment your code as your instructors have in class?
+`HUBOT_SLACK_TOKEN=TOKEN-GOES-HERE ./bin/hubot --adapter slack`
 
-* __Total__: Your instructors will give you a total score on your project between:
+> This gives output, then gives you a prompt that lets you interact with your hubot. Press Ctrl + C when you're done, to return to the shell prompt.
 
-    Score | Expectations
-    ----- | ------------
-    **0** | _Does not meet expectations._
-    **1** | _Meets expectactions, good job!_
-    **2** | _Exceeds expectations, you wonderful creature, you!_
+Now we have our very own Hubot that's willing and able to do our bidding. What can it do? Let’s take it for a test drive.
 
-This will serve as a helpful overall gauge of whether you met the project goals, but __the more important scores are the individual ones__ above, which can help you identify where to focus your efforts for the next project!
+> There's a `module` object. We customize the `exports` method, and within it we create nested behaviors for different methods. So the code is always structured as
+
+> ```
+> module.exports = function(robot) {
+>   robot.verb(parameter1, function(res) {
+>      return res.command();
+>    });
+> };
+> ```
+>where `verb` is the action from the API that you are customizing, `parameter1` is the data passed to the method, and `command` is a command from the API to run.
+
+### Interacting with Your Hubot
+
+To create instructions for your Hubot, you need to add a JavaScript file to the `scripts` folder. You can add multiple scripts files to that folder and all will execute when the Hubot is run. Let's look at a few commands that will help us build our Hubot scripts.
+
+> To test locally, `cd` to the `bin` folder, then type `hubot` as a command. A prompt is displayed, and everything you type is input for your bot to respond to. At this point you don't have any scripts in place for bot functionality, though.
+
+#### Listening
+
+**.hear**
+
+ The `.hear` command listens for a specific phrase anywhere in the Slack room. You don't have to mention your Hubot in order to get a response.
+
+ In the example below, when the bot hears "Hello!", it will respond, "Hi there!":
+
+ ```js
+ bot.hear(/Hello!/, function(res) {
+   return res.send("Hi there!");
+ });
+ ```
+
+ ```
+ tim: Hello!
+ hubot: Hi there!
+ ```
+
+**.respond**
+
+ `.respond` is similar to `.hear`, except it will only be triggered when someone specifically mentions the Hubot using `@`, or sends a direct message.
+
+ ```javascript
+ bot.respond(/What's your favorite food?/, function(res) {
+   return res.send("I'm a robot--I don't eat food!");
+ });
+ ```
+
+ ```
+ tim: @hubot What's your favorite food?
+ hubot: I'm a robot--I don't eat food!
+ jon: What's your favorite food?
+ ... [no response because Jon didn't tag Hubot in his message]
+ ```
+
+#### Speaking Responding to User Input
+
+**.send and .reply**
+
+The "send" method allows your Hubot to send a message to the channel, and the "reply" method allows it to respond directly to a user with an @ reply. In order to understand the difference, we’ll need to accept some user input, so let's take a look at the example below.
+
+**The Wildcard Selector**
+
+ Would you like to accept user input in your script? Take a look at the example below:
+
+ ```js
+ bot.respond(/Hi Hubot! My name is (.*)/i, function(msg) {
+   var name;
+   name = msg.match[1];
+   if (name == "Hubot"){
+     return msg.send("You're not Hubot--I'm Hubot!");
+   } else {
+     return msg.reply("Nice to meet you, " + name + "!");
+   }
+
+ });
+ ```
+ ```
+ tim: @hubot Hi Hubot! My name is Tim
+ hubot: @tim Nice to meet you, Tim!  
+ tim: @hubot Hi Hubot! My name is Hubot
+ hubot: You're not Hubot--I'm Hubot!
+ ```
+
+Did you notice the difference between `.send` and `.reply`?
+
+Now, let's dig into how the user input works. As you can see, we're using `.respond` to set the bot up to listen for its @ handle. In this case, it's listening for the phrase `@hubot Hi Hubot! My name is _____`. The `(.*)` syntax is a wildcard value that effectively represents the "blank" in that sentence. When the bot is triggered with the phrase, `@hubot Hi Hubot! My name is (.*)`, it stores the contents of `(.*)` in an array called `match`, which lives inside an object called `msg`. When we want to retrieve that value, we use `fav = msg.match[0]` to grab the first value in that array, which, in this case, is "Tim".
+
+ <details>
+ <summary>
+ **Wait, What Does the `[1]` Mean?** (click the arrow for the answer)
+ </summary>
+`msg.match[1]` will grab the value corresponding to the second group `(.*)` in the expression. Just like most collections in JavaScript, this is a zero-based index. However, the first group is the entire expression. So in the example above, `msg.match[0]` will return the entire expression: `Hi Hubot! My name is Tim`. If you use multiple `(.*)`s within one RegEx statement, you can assign each of the values to different variables, such as: `var foo = msg.match[1]`, `var bar = msg.match[2]`.
+ </details>
+
+ Here's an example that uses two wildcards:
+
+ ```js
+ bot.respond(/add (.*) and (.*)/i, function(msg) {
+   var a;
+   var b;
+   a = parseInt(msg.match[1]);
+   b = parseInt(msg.match[2]);
+   c = a + b
+
+   return msg.reply(a + " plus " + b + " = " + c);
+ });
+
+ ```
+ ```
+ tim: @hubot add 3 and 4
+ hubot: 3 plus 4 = 7
+ ```
+
+ Here's another example that uses a switch statement to handle different cases:
+ ```js
+ bot.respond(/what is your favorite (.*)/, function(msg) {
+   var fav;
+   fav = msg.match[1];
+   console.log(fav);
+   switch (fav) {
+     case "food":
+       return msg.reply("I'm a robot--I don't eat food!");
+       break;
+     case "band":
+       return msg.reply("It's gotta be Daft Punk!");
+       break;
+     case "programming language":
+       return msg.reply("Javascript, of course!");
+       break;
+     default:
+       return msg.reply("I don't have a favorite " + fav + ". What's yours?");
+   }
+ });
+ ```
+ ```
+ tim: @hubot what is your favorite food?
+ hubot: @tim I'm a robot--I don't eat food!
+ tim @hubot what is your favorite color?
+ hubot: @tim I don't have a favorite color. What's yours?
+ ```
+
+#### Getting Fancy
+
+ **Regular Expressions**
+   You might have noticed that we haven't used quotes around the phrases Hubot is listening for; instead, we’re using `/` (e.g. `/What's your favorite food/`). Why do we do this?
+
+  Most programming languages allow you to search for text within text using something called **Regular Expressions**. Regular expressions, or "RegEx," enable you to listen for very specific patterns of text within a document, or, in this case, a chat room.
+
+  For example, if you want to find the word "what" using a RegEx, you can use the following code: `\bwhat\b`. Here, "b" represents the boundaries of the word (i.e., its beginning and end) and the "what" represents the word we are searching for.
+
+  This is an advanced example, though. **For most of your bots, you can simply enclose phrases between `/` marks**. If you would like to learn more about RegEx, check out the resources below:
+  - [RegexOne](http://regexone.com/) walks you through basic to advanced RegEx syntax. Check it out!
+  - [RegExr](http://regexr.com/) lets you test out your RegEx without the need to constantly start and stop your bot.
+
+
+To wrap things up, here's one final example of an advanced Hubot that uses a RegEx, and that can respond to a number of different inputs:
+
+```js
+module.exports = function(robot) {
+    robot.respond(/is it a (weekend|holiday)\s?\?/i, function(msg){
+        var today = new Date();
+
+        msg.reply(today.getDay() === 0 || today.getDay() === 6 ? "YES" : "NO");
+    });
+
+    robot.hear(/i did it/i, function(msg){
+        msg.send("Congratulations! Good job!");
+    });
+
+    robot.respond(/are you there?/i, function(msg){
+        msg.reply('Yes, usually here, and listening.');
+    });
+
+    robot.respond(/convert \$(.*) to btc/i, function(res){
+        var usd = res.match[1];
+        res.reply('That is about ' + usd * 0.0024 + ' in BTC');
+    });
+
+}
+```
+
+This should give you a sense of what a Hubot can do—and perhaps give you some ideas for building your own Hubot...
+
+>Note: Additional information on building and running Hubots is available in the readme.md file, which is located in the GitHub folder with the project files.
